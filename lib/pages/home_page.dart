@@ -13,13 +13,13 @@ class HomePage extends StatelessWidget {
       body: BlocBuilder<HomeBloc, HomeState>(
           bloc: BlocProvider.of<HomeBloc>(context),
           builder: (context, state) {
-            
+
             if (state is HomeStateLoaded)
               return ListView.builder(
-                itemCount: 50,
+                itemCount: state.list.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text('Item $index'),
+                    title: Text(state.list[index]),
                   );
                 },
               );
